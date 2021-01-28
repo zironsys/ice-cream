@@ -12,7 +12,7 @@ object IceCream {
     // using loan pattern, build comma-delineated sequence of lines from file
     // the type returned is Try[Seq[String]]
     Using(new BufferedReader(
-          new FileReader(raw"""C:\Users\ziron\IdeaProjects\IceCream_\icecream_rows.csv"""))) { reader =>
+          new FileReader(raw"""YOUR PATH HERE icecream_rows.csv"""))) { reader =>
       Iterator.continually(reader.readLine()).takeWhile(_ != null).toSeq
     }
     match {
