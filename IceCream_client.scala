@@ -13,11 +13,12 @@ trait IceCream{
   // the library
   def getRows: RowSeq
 
-  // individual operations
+  /* individual operations */
   def getFlavorSet(flavors: Seq[String]):         RowSet
   def getMakerLikeSet(likeString: String):        RowSet
-  def unionSets    (left: RowSet, right: RowSet): RowSet
-  def intersectSets(left: RowSet, right: RowSet): RowSet
+  // these use symbol aliases for Set union and intersection
+  def unionSets    (left: RowSet, right: RowSet): RowSet = left | right
+  def intersectSets(left: RowSet, right: RowSet): RowSet = left & right  
 
   // equivalent to T-SQL 'query rewrite II' using individual operations above
   def queryResult(intersectFlavorSet: Seq[String])
@@ -127,10 +128,6 @@ object IceCream{
       (baseFlavors flatMap(bf =>
         baseFlavor_mf_map(bf) map(bf_value => (bf_value.maker,bf_value.flavor,bf)))).toSet
     }
-
-    // uses symbol aliases for Set union and intersection
-    def unionSets    (left: RowSet, right: RowSet): RowSet = left | right
-    def intersectSets(left: RowSet, right: RowSet): RowSet = left & right
 
     /*
         solves the requirement query
