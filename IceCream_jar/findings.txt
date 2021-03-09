@@ -1,0 +1,9 @@
+
+***NOT USED BY ICECREAM!  findings for GitHub
+
+   * any file placed in artifacts/jar directory auto appears in out/articats/jar directory in IntelliJ
+   * run/edit configurations: seems to need at least 1 configuration or won't run in Intellij
+   * the working directory seems to be 'where to find resources' (?)
+   
+
+
